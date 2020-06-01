@@ -19,10 +19,11 @@ contract EIP621Token is EIP621AbstractToken {
     {}
 
     function increaseSupply(uint value, address to) public {
-        totalSupply = safeAdd(totalSupply, value);
-        balances[to] = safeAdd(balances[to], value);
-
-        Transfer(0, to, value);
+        return false;
+    /**
+     *   totalSupply = safeAdd(totalSupply, value);
+     *   balances[to] = safeAdd(balances[to], value);
+     *   Transfer(0, to, value);
     }
 
     function safeAdd(uint a, uint b) internal returns (uint) {
